@@ -1,8 +1,8 @@
-# 👶 Dashboard de Análisis de Natalidad
+# Chat Conversacional + Bigquery + IA
 
-Este proyecto implementa un chat conversacional inteligente que permite realizar análisis avanzados de datos de natalidad en Estados Unidos utilizando consultas en lenguaje natural. El sistema combina BigQuery para el acceso a datos, Gemini AI para la generación automática de consultas SQL, y Streamlit para una interfaz interactiva y visualizaciones en tiempo real.
+Este proyecto implementa un chat conversacional inteligente que permite realizar análisis de datos de natalidad en Estados Unidos utilizando consultas en lenguaje natural. El sistema combina BigQuery para el acceso a datos, Gemini AI para la generación automática de consultas SQL, y Streamlit para una interfaz interactiva y visualizaciones.
 
-![Dashboard Principal](https://via.placeholder.com/800x400/2980b9/ffffff?text=Dashboard+de+Natalidad)
+![Dashboard Principal](/docs/Screenshot%202025-06-06%20014200.png)
 
 ### Componentes Principales
 
@@ -35,7 +35,7 @@ Los datos provienen del dataset público **`bigquery-public-data.samples.natalit
 
 ## 🧠 Motor de IA Conversacional
 
-El sistema utiliza **Gemini 1.5 Flash** para interpretar preguntas en lenguaje natural y generar consultas SQL precisas. El proceso incluye:
+El sistema utiliza **gemini-2.0-flash-thinking-exp-1219** para interpretar preguntas en lenguaje natural y generar consultas SQL precisas. El proceso incluye:
 
 ### Procesamiento de Consultas Naturales
 - **Análisis contextual** de la pregunta del usuario
@@ -56,126 +56,3 @@ GROUP BY state
 ORDER BY peso_promedio DESC
 LIMIT 10
 ```
-
-### Manejo de Casos Especiales
-- **Consultas vacías**: Análisis inteligente del por qué no hay resultados
-- **Sugerencias automáticas**: Reformulación de preguntas para obtener mejores resultados
-- **Validación temporal**: Alertas cuando se consultan años fuera del rango disponible
-
-## 📊 Sistema de Visualización
-
-### Generación Automática de Gráficos
-El sistema analiza automáticamente los resultados y determina el tipo de visualización más apropiado:
-
-- **Gráficos de barras** para comparaciones entre estados o años
-- **Detección automática** de variables categóricas vs numéricas
-- **Límite inteligente** de 20 elementos para mantener legibilidad
-- **Priorización** de campos clave como 'year' y 'state' para ejes X
-
-### Características de Visualización
-- **Colores consistentes** con el tema del dashboard
-- **Títulos dinámicos** basados en los datos mostrados
-- **Fondo transparente** para integración perfecta
-- **Responsivo** para diferentes tamaños de pantalla
-
-## 🎯 Motor de Análisis y Explicaciones
-
-### Análisis Adaptativo
-El sistema ajusta automáticamente la profundidad del análisis según el tipo de pregunta:
-
-#### Preguntas Directas
-- Respuestas **concisas y directas**
-- Enfoque en el resultado numérico clave
-- Ejemplo: *"El peso promedio al nacer en 2005 fue de 7.3 libras"*
-
-#### Preguntas Analíticas
-- **Análisis detallado** con insights
-- **Identificación de patrones** y tendencias
-- **Conclusiones** basadas en los datos
-- Ejemplo: *"Análisis de tendencia muestra aumento gradual en la edad promedio de las madres de 24.1 años en 2000 a 25.8 años en 2008"*
-
-### Manejo Inteligente de Errores
-- **Diagnóstico automático** de consultas sin resultados
-- **Explicaciones contextuales** del por qué no hay datos
-- **Sugerencias de reformulación** para obtener mejores resultados
-
-## 🛠️ Arquitectura Técnica
-
-### Stack Tecnológico
-- **[Streamlit](https://streamlit.io/)**: Framework para la interfaz web interactiva
-- **[Google BigQuery](https://cloud.google.com/bigquery)**: Base de datos en la nube para consultas SQL a gran escala
-- **[Gemini AI](https://ai.google.dev/)**: Modelo de lenguaje para generación de SQL y análisis
-- **[Plotly](https://plotly.com/)**: Visualizaciones interactivas y responsivas
-- **[Pandas](https://pandas.pydata.org/)**: Manipulación y análisis de datos estructurados
-
-### Optimizaciones de Rendimiento
-- **Cache inteligente** (TTL 3600s) para metadatos de tablas
-- **Conexión persistente** a BigQuery mediante decoradores
-- **Lazy loading** de visualizaciones solo cuando son necesarias
-- **Validación previa** de consultas para evitar errores costosos
-
-## 💡 Ejemplos de Uso
-
-### Consultas Básicas
-```
-"¿Cuál es el peso promedio al nacer en el año 2005?"
-"Muestra los 20 pesos más elevados de los recién nacidos en 2005"
-```
-
-### Análisis Comparativos
-```
-"Compara las semanas de gestación promedio para madres menores de 20 años vs. madres mayores de 35 en el año 2005"
-"Calcula el peso promedio en libras para los 10 estados con más nacimientos en 2007"
-```
-
-### Análisis de Tendencias
-```
-"Analiza la tendencia de la edad promedio de la madre entre 2000 y 2008"
-"Muestra la tendencia del número de nacimientos por año desde 2000 a 2008"
-```
-
-### Consultas Específicas
-```
-"¿Cuál es la cantidad de nacimientos de gemelos (plurality=2) por año desde 1990 hasta 1995?"
-```
-
-## 🔍 Características Avanzadas
-
-### Interfaz de Usuario
-- **Chat persistente** que mantiene historial de consultas
-- **Expansor SQL** para ver las consultas generadas
-- **Tablas interactivas** con todos los resultados
-- **Sidebar informativo** con estado de conexiones y ejemplos
-
-### Validación de Datos
-- **Verificación automática** de rangos temporales válidos
-- **Manejo robusto** de valores nulos y datos faltantes
-- **Sanitización** de consultas SQL para prevenir inyecciones
-
-### Experiencia de Usuario
-- **Mensajes de estado** claros durante el procesamiento
-- **Iconos y emojis** para mejorar la legibilidad
-- **Diseño responsive** que funciona en móviles y desktop
-- **Tooltips informativos** para guiar al usuario
-
-## 🎯 Objetivo del Proyecto
-
-Este dashboard demuestra la **democratización del análisis de datos** mediante interfaces conversacionales. Permite que usuarios sin conocimientos técnicos profundos puedan:
-
-- **Explorar** grandes volúmenes de datos de salud pública
-- **Generar insights** mediante preguntas naturales
-- **Visualizar tendencias** automáticamente
-- **Comprender patrones** en datos de natalidad históricos
-
-## 🚀 Características Destacadas
-
-- **🤖 IA Conversacional**: Transforma lenguaje natural en consultas SQL precisas
-- **📊 Visualización Automática**: Gráficos generados inteligentemente según los datos
-- **🔍 Análisis Contextual**: Explicaciones adaptadas al tipo de pregunta
-- **⚡ Alto Rendimiento**: Optimizado para consultas rápidas en BigQuery
-- **🎨 UX Intuitiva**: Interfaz de chat familiar y fácil de usar
-- **📈 Insights Automáticos**: Identificación de patrones y tendencias relevantes
-
----
-
-*Dashboard desarrollado para facilitar el análisis de datos de salud pública mediante inteligencia artificial conversacional*
