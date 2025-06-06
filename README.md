@@ -2,7 +2,7 @@
 
 Este proyecto implementa un chat conversacional inteligente que permite realizar análisis de datos de natalidad en Estados Unidos utilizando consultas en lenguaje natural. El sistema combina BigQuery para el acceso a datos, Gemini AI para la generación automática de consultas SQL, y Streamlit para una interfaz interactiva y visualizaciones.
 
-![Dashboard Principal](/docs/Screenshot%202025-06-06%20014200.png)
+![Dashboard Principal](/docs/ss.png)
 
 ### Componentes Principales
 
